@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.VilleController">
+    <top>
+        <HBox alignment="CENTER" prefHeight="68.0" prefWidth="797.0" style="-fx-background-color: #ab47bc;">
+            <padding>
+                <Insets bottom="15.0" left="10.0" right="10.0" top="15.0" />
+            </padding>
+            <Label text="sélectioner une ville pour modifier ou supprimer" textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="20" />
+                </font>
+            </Label>
+        </HBox>
+    </top>
+
+    <left>
+        <VBox spacing="20">
+            <padding>
+                <Insets left="15.0" right="20.0" top="30.0" />
+            </padding>
+            <HBox spacing="10">
+                <Label text="Code Ville" />
+                <JFXTextField fx:id="codeTextField" disable="true" focusColor="#790e8b" />
+            </HBox>
+            <HBox spacing="10">
+                <Label text="Nom Ville" />
+                <JFXTextField fx:id="nomTextField" focusColor="#790e8b" />
+            </HBox>
+            <HBox spacing="15">
+                <JFXButton fx:id="initialiserButton" buttonType="RAISED" onAction="#initialiserHandler" prefHeight="31.0" prefWidth="98.0" ripplerFill="#790e8b" style="-fx-background-color: #ab47bc;" text="initialiser" textFill="WHITE" />
+                <JFXButton fx:id="ajouterButton" buttonType="RAISED" onAction="#ajouterHandler" prefHeight="31.0" prefWidth="98.0" ripplerFill="#790e8b" style="-fx-background-color: #ab47bc;" text="ajouter" textFill="WHITE" />
+            </HBox>
+            <HBox spacing="15">
+                <JFXButton fx:id="modifierButton" buttonType="RAISED" onAction="#modifierHandler" prefHeight="31.0" prefWidth="98.0" ripplerFill="#790e8b" style="-fx-background-color: #ab47bc;" text="modifier" textFill="WHITE" />
+                <JFXButton fx:id="supprimerButton" buttonType="RAISED" onAction="#supprimerHandler" prefHeight="31.0" prefWidth="98.0" ripplerFill="#790e8b" style="-fx-background-color: #ab47bc;" text="supprimer" textFill="WHITE" />
+            </HBox>
+
+        </VBox>
+    </left>
+
+   <center>
+       <HBox>
+           <padding>
+               <Insets left="10.0" right="10.0" top="20.0" />
+           </padding>
+           <TableView fx:id="tableView" prefHeight="272.0" prefWidth="248.0" HBox.hgrow="ALWAYS">
+               <columns>
+                   <TableColumn text="Code Ville">
+                     <cellValueFactory>
+                         <PropertyValueFactory property="codeVille" />
+                     </cellValueFactory>
+                   </TableColumn>
+                   <TableColumn text="Nom Ville">
+                       <cellValueFactory>
+                           <PropertyValueFactory property="nomVille" />
+                       </cellValueFactory>
+                   </TableColumn>
+               </columns>
+            <columnResizePolicy>
+               <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+            </columnResizePolicy>
+           </TableView>
+       </HBox>
+
+   </center>
+   <padding>
+      <Insets top="-10.0" />
+   </padding>
+
+
+
+</BorderPane>

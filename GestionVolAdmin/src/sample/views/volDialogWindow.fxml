@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.*?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.control.cell.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="sample.controllers.VolController">
+    <top>
+        <HBox alignment="CENTER" prefHeight="68.0" prefWidth="797.0" style="-fx-background-color: #ab47bc;">
+            <padding>
+                <Insets bottom="15.0" left="10.0" right="10.0" top="15.0" />
+            </padding>
+            <Label text="sélectioner un vol pour modifier ou supprimer" textFill="WHITE">
+                <font>
+                    <Font name="System Bold" size="20" />
+                </font>
+            </Label>
+        </HBox>
+    </top>
+
+
+    <left>
+        <VBox spacing="20">
+            <padding>
+                <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+            </padding>
+            <HBox spacing="10">
+                <Label prefWidth="100.0" text="Num vol : " />
+                <JFXTextField fx:id="numTextField" disable="true" />
+            </HBox>
+            <HBox spacing="10">
+                <Label prefWidth="100.0" text="Date départ : " />
+                <JFXDatePicker fx:id="dateDTextField" defaultColor="#790e8b" />
+            </HBox>
+            <HBox spacing="10">
+                <Label prefWidth="100.0" text="Date arrivée : " />
+                <JFXDatePicker fx:id="dateATextField" defaultColor="#790e8b" />
+            </HBox>
+            <HBox spacing="10">
+                <Label prefWidth="100.0" text="Heure départ : " />
+                <JFXTextField fx:id="heureDTextField" focusColor="#790e8b" promptText="hh:mm:ss" />
+            </HBox>
+            <HBox spacing="10">
+                <Label prefWidth="100.0" text="Heure arrivée : " />
+                <JFXTextField fx:id="heureATextField" focusColor="#790e8b" promptText="hh:mm:ss" />
+            </HBox>
+            <HBox spacing="10">
+                <Label prefWidth="100.0" text="Nom pilote : " />
+                <JFXComboBox fx:id="piloteComboBox" focusColor="#790e8b" prefHeight="26.0" prefWidth="159.0" />
+            </HBox>
+            <HBox spacing="10">
+                <Label prefWidth="100.0" text="Ville départ : " />
+                <JFXComboBox fx:id="villeDComboBox" focusColor="#790e8b" prefHeight="26.0" prefWidth="159.0" />
+            </HBox>
+            <HBox spacing="10">
+                <Label prefWidth="100.0" text="Ville arrivée : " />
+                <JFXComboBox fx:id="villeAComboBox" focusColor="#790e8b" prefWidth="159.0" />
+            </HBox>
+
+            <HBox spacing="15">
+                <JFXButton fx:id="initialiserButton" buttonType="RAISED" onAction="#initialiserHandler" prefHeight="31.0" prefWidth="98.0" ripplerFill="#790e8b" style="-fx-background-color: #ab47bc;" text="initialiser" textFill="WHITE" />
+                <JFXButton fx:id="ajouterButton" buttonType="RAISED" onAction="#ajouterHandler" prefHeight="31.0" prefWidth="98.0" ripplerFill="#790e8b" style="-fx-background-color: #ab47bc;" text="ajouter" textFill="WHITE" />
+            </HBox>
+            <HBox spacing="15">
+                <JFXButton fx:id="modifierButton" buttonType="RAISED" onAction="#modifierHandler" prefHeight="31.0" prefWidth="98.0" ripplerFill="#790e8b" style="-fx-background-color: #ab47bc;" text="modifier" textFill="WHITE" />
+                <JFXButton fx:id="supprimerButton" buttonType="RAISED" onAction="#supprimerHandler" prefHeight="31.0" prefWidth="98.0" ripplerFill="#790e8b" style="-fx-background-color: #ab47bc;" text="supprimer" textFill="WHITE" />
+            </HBox>
+        </VBox>
+    </left>
+
+    <center>
+        <HBox alignment="CENTER">
+            <padding>
+                <Insets bottom="20.0" left="10.0" right="10.0" top="20.0" />
+            </padding>
+            <TableView fx:id="tableView" HBox.hgrow="ALWAYS">
+                <columns>
+                    <TableColumn text="Num Vol">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="numVol" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Date Départ">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="dateDepart" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Date Arrivée">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="dateArrivee" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Heure Départ">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="heureDepart" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Heure Arrivée">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="heureArrivee" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Nom Pilote">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="pilote" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Ville Départ">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="villeDepart" />
+                        </cellValueFactory>
+                    </TableColumn>
+                    <TableColumn text="Ville Arrivée">
+                        <cellValueFactory>
+                            <PropertyValueFactory property="villeArrivee" />
+                        </cellValueFactory>
+                    </TableColumn>
+                </columns>
+                <columnResizePolicy>
+                    <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                </columnResizePolicy>
+            </TableView>
+         <BorderPane.margin>
+            <Insets />
+         </BorderPane.margin>
+        </HBox>
+    </center>
+   <padding>
+      <Insets top="-10.0" />
+   </padding>
+
+</BorderPane>
